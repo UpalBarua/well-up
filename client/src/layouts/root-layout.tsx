@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar/navbar';
 import ThemeToggle from '@/components/theme-toggle';
 
 type RootLayoutProps = {
@@ -7,8 +8,7 @@ type RootLayoutProps = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <div>
-      <nav>navbar</nav>
-      <ThemeToggle />
+      <Navbar />
       {children}
       <footer>footer</footer>
     </div>
