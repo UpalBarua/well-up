@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@hookform/resolvers':
     specifier: ^3.3.3
@@ -53,6 +49,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.49.2
     version: 7.49.2(react@18.2.0)
+  react-icons:
+    specifier: ^4.12.0
+    version: 4.12.0(react@18.2.0)
   tailwind-merge:
     specifier: ^2.2.0
     version: 2.2.0
@@ -2963,6 +2962,14 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-icons@4.12.0(react@18.2.0):
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
@@ -3596,3 +3603,7 @@ packages:
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
