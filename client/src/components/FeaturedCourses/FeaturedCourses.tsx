@@ -60,8 +60,10 @@ const FeaturedCourses = () => {
     },
   ];
   return (
-    <section className="mt-14">
-      <h1 className="mb-14 text-2xl font-bold text-center">Featured Courses</h1>
+    <section className="pt-14 dark:bg-gray-900">
+      <h1 className="mb-14 text-2xl font-bold text-center dark:text-white">
+        Featured Courses
+      </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
         {allFeaturesCourses?.map((course) => (
           <div key={course?.id}>
