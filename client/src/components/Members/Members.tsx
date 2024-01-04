@@ -32,10 +32,14 @@ const Members = () => {
               className="pl-8 pr-8 pt-8 pb-8 rounded-md"
             >
               <div className="flex justify-center">
-                <MdManageAccounts className="text-5xl pb-2"></MdManageAccounts>
+                <MdManageAccounts className="text-5xl pb-2 dark:text-black"></MdManageAccounts>
               </div>
-              <h1 className="text-4xl font-bold">{members.number}+</h1>
-              <h1 className=" font-semibold">{members.position}</h1>
+              <h1 className="text-4xl font-bold dark:text-black">
+                {members.number}+
+              </h1>
+              <h1 className=" font-semibold dark:text-black">
+                {members.position}
+              </h1>
             </div>
           </div>
         ))}
