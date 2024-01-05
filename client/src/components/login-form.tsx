@@ -14,7 +14,7 @@ import { useMutation } from '@tanstack/react-query';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
 import { IoIosArrowRoundForward } from 'react-icons/io';
-import { toast } from 'sonner';
+import toast from 'sonner';
 import { z } from 'zod';
 
 const loginFormSchema = z.object({

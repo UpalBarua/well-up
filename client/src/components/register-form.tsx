@@ -20,10 +20,11 @@ import { auth } from '@/firebase/firebase.config';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { ArrowRight, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { FaSpinner } from 'react-icons/fa6';
 import { IoIosArrowRoundForward } from 'react-icons/io';
-import { toast } from 'sonner';
+import toast from 'sonner';
 import { z } from 'zod';
 
 const userRoles = ['owner', 'renter'] as const;
@@ -146,37 +147,13 @@ const RegisterForm = () => {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="role"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>User Role</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a user role" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {userRoles.map((role) => (
-                    <SelectItem key={role} value={role}>
-                      {role}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <div className="flex justify-end pt-3">
           <Button type="submit" disabled={isPending}>
             <span>Register</span>
             {isPending ? (
-              <FaSpinner className="text-2xl animate-spin" />
+              <Loader2 className="animate-spin h-5 w-5" />
             ) : (
-              <IoIosArrowRoundForward className="text-2xl text-primary-50" />
+              <ArrowRight className="h-5 w-5" />
             )}
           </Button>
         </div>

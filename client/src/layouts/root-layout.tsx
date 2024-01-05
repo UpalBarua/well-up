@@ -10,7 +10,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <div>
       <Navbar />
       {children}
-      <footer>footer</footer>
+      {/* <footer>footer</footer> */}
     </div>
   );
 };
