@@ -4,5 +4,5 @@
 
 html,
 body {
-  @apply bg-primary-50/90 text-neutral-950/90 dark:bg-neutral-900 dark:text-neutral-50/90 h-full;
+  @apply bg-primary-50/90 text-neutral-950/90 dark:bg-neutral-900 dark:text-neutral-50/90 min-h-screen;
 }
