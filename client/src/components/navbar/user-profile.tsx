@@ -9,7 +9,7 @@ const UserProfile = () => {
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <span>Niaz Abir</span>
+      <span className="font-medium hidden sm:block">Niaz Abir</span>
     </Link>
   );
 };

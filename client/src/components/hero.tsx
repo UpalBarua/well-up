@@ -8,11 +8,19 @@ import { ChevronDown, Code, Search } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
     <section className="pb-10 pt-5 grid grid-cols-2 gap-x-12 items-center mx-auto max-w-6xl lg:pb-28 lg:pt-8">
-      <div className="space-y-2.5 lg:space-y-4">
+      <motion.div
+        className="space-y-2.5 lg:space-y-4"
+        initial={{
+          x: -100,
+        }}
+        animate={{
+          x: 0,
+        }}>
         <h1 className="text-3xl font-bold tracking-tight lg:text-5xl lg:leading-[1.125] dark:text-white">
           Empowering Futures, Elevating Skills, Welcome to{' '}
           <span className="text-secondary-500">Well-Up!</span>
@@ -29,7 +37,7 @@ const Hero = () => {
               <Search />
             </Button>
           </form>
-          <div className="flex items-center gap-x-2.5">
+          <div className=" items-center gap-x-2.5 hidden lg:flex">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -80,8 +88,15 @@ const Hero = () => {
             </DropdownMenu>
           </div>
         </div>
-      </div>
-      <div className="grid grid-cols-12 grid-rows-12 gap-1 h-[30rem]">
+      </motion.div>
+      <motion.div
+        className="grid grid-cols-12 grid-rows-12 gap-1 h-[30rem]"
+        initial={{
+          y: 100,
+        }}
+        animate={{
+          y: 0,
+        }}>
         <div className="relative col-span-6 row-start-2 row-span-6">
           <Image
             src="https://source.unsplash.com/random/?code"
@@ -114,7 +129,7 @@ const Hero = () => {
             fill
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

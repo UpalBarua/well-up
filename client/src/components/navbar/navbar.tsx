@@ -6,6 +6,7 @@ import Link from 'next/link';
 import MobileMenu from './mobile-menu';
 import ThemeToggle from './theme-toggle';
 import UserProfile from './user-profile';
+import { motion } from 'framer-motion';
 
 export const navLinks = [
   {
@@ -40,7 +41,14 @@ const Navbar = () => {
   const isSmPlus = useMediaQuery('(min-width: 640px)');
 
   return (
-    <header className="py-1 sm:py-2 sticky top-0 z-10 bg-primary-50 dark:bg-neutral-900">
+    <motion.header
+      className="py-1 sm:py-2 sticky top-0 z-10 bg-primary-50 dark:bg-neutral-900"
+      initial={{
+        y: -100,
+      }}
+      animate={{
+        y: 0,
+      }}>
       <div className="container flex items-center justify-between">
         <Link href="/" className="flex items-center gap-x-2">
           <Image
@@ -69,7 +77,7 @@ const Navbar = () => {
               ))}
             </nav>
           )}
-          {true ? (
+          {!isSmPlus ? (
             <UserProfile />
           ) : (
             <Link
@@ -83,7 +91,7 @@ const Navbar = () => {
           {!isSmPlus && <MobileMenu />}
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
