@@ -10,28 +10,22 @@ import { motion } from 'framer-motion';
 
 export const navLinks = [
   {
-    Icon: <Home className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />,
+    Icon: <Home className="h-4 w-4 text-foreground/80" />,
     title: 'Home',
     href: '/',
   },
   {
-    Icon: (
-      <LayoutGrid className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
-    ),
+    Icon: <LayoutGrid className="h-4 w-4 text-foreground/80" />,
     title: 'Courses',
     href: '/courses',
   },
   {
-    Icon: (
-      <UsersRound className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
-    ),
+    Icon: <UsersRound className="h-4 w-4 text-foreground/80" />,
     title: 'Mentors',
     href: '/mentors',
   },
   {
-    Icon: (
-      <PenSquare className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
-    ),
+    Icon: <PenSquare className="h-4 w-4 text-foreground/80" />,
     title: 'Blog',
     href: '/blog',
   },
@@ -42,7 +36,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className="py-1 sm:py-2 sticky top-0 z-10 bg-primary-50 dark:bg-neutral-900"
+      className="py-1 sm:py-2 sticky top-0 z-10 bg-secondary dark:bg-background"
       initial={{
         y: -100,
       }}
@@ -70,6 +64,7 @@ const Navbar = () => {
                   className={buttonVariants({
                     size: 'sm',
                     variant: 'ghost',
+                    className: 'hover:bg-white',
                   })}>
                   <span>{Icon}</span>
                   <span>{title}</span>

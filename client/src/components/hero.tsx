@@ -90,7 +90,7 @@ const Hero = () => {
         </div>
       </motion.div>
       <motion.div
-        className="grid grid-cols-12 grid-rows-12 gap-1 h-[30rem]"
+        className="grid grid-cols-12 grid-rows-12 gap-2.5 h-[30rem]"
         initial={{
           y: 100,
         }}

@@ -30,7 +30,7 @@
 
     --border: 203 40% 85%;
     --input: 203 40% 85%;
-    --ring: 203 10% 25%;
+    --ring: 203 10% 80%;
 
     --radius: 0.75rem;
   }
@@ -72,6 +72,6 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-secondary dark:bg-background text-foreground;
   }
 }
