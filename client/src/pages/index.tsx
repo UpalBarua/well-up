@@ -1,14 +1,51 @@
-import Catagories from "@/components/Catagories/Catagories";
-import FeaturedCourses from "@/components/FeaturedCourses/FeaturedCourses";
-import Members from "@/components/Members/Members";
-import { Button } from "@/components/ui/button";
+import FeaturedCourses from '@/components/FeaturedCourses/FeaturedCourses';
+import Members from '@/components/Members/Members';
+import CategoryCard from '@/components/category-card';
+import Hero from '@/components/hero';
+import { Button } from '@/components/ui/button';
+import { VscSymbolClass } from 'react-icons/vsc';
+
+const categories = [
+  {
+    name: 'Web Development and Design',
+    courseCount: 9,
+  },
+  {
+    name: 'Data Science and Machine Learning',
+    courseCount: 5,
+  },
+  {
+    name: 'Mobile App Development',
+    courseCount: 3,
+  },
+  {
+    name: 'Business and Entrepreneurship',
+    courseCount: 4,
+  },
+  {
+    name: 'Engineering (Civil and Electrical)',
+    courseCount: 6,
+  },
+  {
+    name: 'Creative Arts and Hobbies',
+    courseCount: 6,
+  },
+];
 
 const HomePage = () => {
   return (
-    <main>
-      <Members></Members>
-      <Catagories></Catagories>
-      <FeaturedCourses></FeaturedCourses>
+    <main className="container">
+      <Hero />
+      <h2 className="text-center dark:text-white text-2xl font-medium pb-10">
+        Course Catagories
+      </h2>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 max-w-5xl mx-auto">
+        {categories.map((category) => (
+          <CategoryCard key={category.name} {...category} />
+        ))}
+      </div>
+      {/* <Members></Members> */}
+      {/* <FeaturedCourses></FeaturedCourses> */}
     </main>
   );
 };

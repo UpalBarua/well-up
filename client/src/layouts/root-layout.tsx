@@ -1,5 +1,4 @@
 import Navbar from '@/components/navbar/navbar';
-import ThemeToggle from '@/components/theme-toggle';
 
 type RootLayoutProps = {
   children: React.ReactNode;
