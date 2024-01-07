@@ -18,21 +18,21 @@ const CourseCard = ({ course }) => {
 
   return (
     <div>
-      <div className=" shadow-md h-[485px] sm:w-96 dark:bg-gray-900 dark:text-gray-100">
+      <div className="rounded-md shadow-md h-[485px] sm:w-96 dark:bg-gray-900 dark:text-gray-100">
         <img
           src={course_banner}
           alt=""
           className="object-cover object-center w-full h-72 "
         />
-        <div className="flex gap-3 mt-2 mb-2 ml-2 dark:text-black">
-          <button className=" bg-sky-200 font-bold px-2 py-1">
+        <div className="flex rounded-md gap-3 mt-2 mb-2 ml-2 dark:text-black">
+          <button className="rounded-md bg-sky-200 font-bold px-2 py-1">
             Batch {batch}
           </button>
-          <div className="flex gap-2 items-center  bg-sky-200 font-bold px-2 py-1">
+          <div className="flex gap-2 rounded-md items-center  bg-sky-200 font-bold px-2 py-1">
             <FaPersonDotsFromLine></FaPersonDotsFromLine>
             <button>Seat {seat}</button>
           </div>
-          <div className="flex gap-2 items-center  bg-sky-200 font-bold px-2 py-1">
+          <div className="flex rounded-md gap-2 items-center  bg-sky-200 font-bold px-2 py-1">
             <MdOutlineVideoLibrary></MdOutlineVideoLibrary>
             <button>{duration}</button>
           </div>
@@ -49,7 +49,7 @@ const CourseCard = ({ course }) => {
           <h1 className="font-semibold ">Start from :{start}</h1>
         </div>
         <div className="pl-2 pt-2">
-          <button className="px-4 py-2 bg-sky-300 text-black font-bold ">
+          <button className="px-4 py-2 bg-sky-300 rounded-md text-black font-bold ">
             More Details
           </button>
         </div>
