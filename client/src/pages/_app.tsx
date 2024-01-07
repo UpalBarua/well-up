@@ -4,6 +4,7 @@ import RootLayout from '@/layouts/root-layout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Montserrat } from 'next/font/google';
 import { ThemeProvider } from '@/context/theme-context';
+import { Toaster } from '@/components/ui/sonner';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
           disableTransitionOnChange>
           <RootLayout>
             <Component {...pageProps} />
+            <Toaster />
           </RootLayout>
         </ThemeProvider>
       </QueryClientProvider>

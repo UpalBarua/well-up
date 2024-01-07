@@ -9,25 +9,15 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { auth } from '@/firebase/firebase.config';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { Loader2, LogIn } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { FaSpinner } from 'react-icons/fa6';
-import { IoIosArrowRoundForward } from 'react-icons/io';
-import toast from 'sonner';
 import { z } from 'zod';
-
-const userRoles = ['owner', 'renter'] as const;
+import { toast } from 'sonner';
+import { useState } from 'react';
 
 const registerFormSchema = z
   .object({
@@ -36,7 +26,6 @@ const registerFormSchema = z
       .min(1, { message: 'Name is required' })
       .max(30, { message: 'Name cannot exceed 30 characters' }),
     email: z.string().email({ message: 'Please enter a valid email address' }),
-    role: z.enum(userRoles).or(z.literal('')),
     password: z
       .string()
       .min(6, { message: 'Password must be at least 6 characters long' }),
@@ -47,34 +36,42 @@ const registerFormSchema = z
     path: ['confirmPassword'],
   });
 
-type RegisterForm = z.infer<typeof registerFormSchema>;
+type TRegisterForm = z.infer<typeof registerFormSchema>;
 
 const RegisterForm = () => {
-  const form = useForm<RegisterForm>({
+  const [registerError, setRegisterError] = useState('');
+
+  const form = useForm<TRegisterForm>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
       name: '',
       email: '',
       password: '',
       confirmPassword: '',
-      role: '',
     },
   });
 
   const { mutate: createNewUser, isPending } = useMutation({
-    mutationFn: async ({ name, email, password, role }: RegisterForm) => {
+    mutationFn: async ({ name, email, password }: TRegisterForm) => {
       try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        await axios.post('/users', {
-          name,
+        const createdUser = await createUserWithEmailAndPassword(
+          auth,
           email,
-          role,
-          imgUrl: `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}`,
-        });
+          password
+        );
+
+        console.log(createdUser);
+
+        // await axios.post('/users', {
+        //   name,
+        //   email,
+        //   imgUrl: `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}`,
+        // });
+
         toast.success('Successfully created new account');
       } catch (error) {
         if (error instanceof Error) {
-          return toast.error(error.message);
+          return setRegisterError(error.message);
         }
 
         toast.error('Something went wrong');
@@ -84,8 +81,13 @@ const RegisterForm = () => {
 
   return (
     <Form {...form}>
+      {registerError ? (
+        <p className="p-4 mt-4 text-sm font-medium rounded-xl bg-destructive text-destructive-foreground">
+          {registerError}
+        </p>
+      ) : null}
       <form
-        className="space-y-4 pt-4"
+        className="pt-4 space-y-5"
         onSubmit={form.handleSubmit((data) => createNewUser(data))}>
         <FormField
           control={form.control}
@@ -148,13 +150,13 @@ const RegisterForm = () => {
           )}
         />
         <div className="flex justify-end pt-3">
-          <Button type="submit" disabled={isPending}>
-            <span>Register</span>
+          <Button type="submit" disabled={isPending} size="lg">
             {isPending ? (
-              <Loader2 className="animate-spin h-5 w-5" />
+              <Loader2 className="w-5 h-5 animate-spin" />
             ) : (
-              <ArrowRight className="h-5 w-5" />
+              <LogIn className="w-5 h-5" />
             )}
+            <span>Register</span>
           </Button>
         </div>
       </form>
