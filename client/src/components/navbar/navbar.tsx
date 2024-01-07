@@ -64,7 +64,6 @@ const Navbar = () => {
                   className={buttonVariants({
                     size: 'sm',
                     variant: 'ghost',
-                    className: 'hover:bg-white',
                   })}>
                   <span>{Icon}</span>
                   <span>{title}</span>
