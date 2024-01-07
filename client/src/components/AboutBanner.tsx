@@ -7,6 +7,7 @@ const AboutBanner = () => {
       <div className="pl-8">
         <h1 className="font-bold text-[26px] pb-3 text-orange-500">
           ABOUT <span className="text-sky-600">US</span>
+          <hr className=" w-[150px]"></hr>
         </h1>
         <h1>
           <span className="text-[16px] font-semibold">Well-Up Technology</span>{" "}
