@@ -17,6 +17,7 @@ import { Loader2, LogIn } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { toast } from 'sonner';
+import { useState } from 'react';
 
 const registerFormSchema = z
   .object({
@@ -38,6 +39,8 @@ const registerFormSchema = z
 type TRegisterForm = z.infer<typeof registerFormSchema>;
 
 const RegisterForm = () => {
+  const [registerError, setRegisterError] = useState('');
+
   const form = useForm<TRegisterForm>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -51,17 +54,24 @@ const RegisterForm = () => {
   const { mutate: createNewUser, isPending } = useMutation({
     mutationFn: async ({ name, email, password }: TRegisterForm) => {
       try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        await axios.post('/users', {
-          name,
+        const createdUser = await createUserWithEmailAndPassword(
+          auth,
           email,
-          imgUrl: `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}`,
-        });
+          password
+        );
+
+        console.log(createdUser);
+
+        // await axios.post('/users', {
+        //   name,
+        //   email,
+        //   imgUrl: `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}`,
+        // });
 
         toast.success('Successfully created new account');
       } catch (error) {
         if (error instanceof Error) {
-          return toast.error(error.message);
+          return setRegisterError(error.message);
         }
 
         toast.error('Something went wrong');
@@ -71,6 +81,11 @@ const RegisterForm = () => {
 
   return (
     <Form {...form}>
+      {registerError ? (
+        <p className="p-4 mt-4 text-sm font-medium rounded-xl bg-destructive text-destructive-foreground">
+          {registerError}
+        </p>
+      ) : null}
       <form
         className="pt-4 space-y-5"
         onSubmit={form.handleSubmit((data) => createNewUser(data))}>
