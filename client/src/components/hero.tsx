@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="pb-10 pt-5 grid grid-cols-2 gap-x-12 items-center mx-auto max-w-6xl lg:pb-28 lg:pt-8">
+    <section className="grid grid-cols-2 gap-x-12 items-center pt-5 pb-10 mx-auto max-w-6xl lg:pb-28 lg:pt-8">
       <motion.div
         className="space-y-2.5 lg:space-y-4"
         initial={{
@@ -31,9 +31,9 @@ const Hero = () => {
           official.
         </p>
         <div className="bg-white rounded-xl p-3 border border-neutral-50/50 shadow-sm space-y-2.5 dark:bg-neutral-950 dark:border-neutral-800/50">
-          <form className="flex items-center gap-x-2">
+          <form className="flex gap-x-2 items-center">
             <Input type="text" className="" placeholder="Search Courses" />
-            <Button size="icon" className="h-12 w-14">
+            <Button size="icon" className="w-14 h-12">
               <Search />
             </Button>
           </form>
@@ -42,9 +42,9 @@ const Hero = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="gap-x-3 h-auto py-3 w-full">
-                  <Code className="h-5 w-5" />
-                  <span className="capitalize font-medium">Category</span>
+                  className="gap-x-3 py-3 w-full h-auto">
+                  <Code className="w-5 h-5" />
+                  <span className="font-medium capitalize">Category</span>
                   <ChevronDown className="ms-2.5 h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -58,9 +58,9 @@ const Hero = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="gap-x-3 h-auto py-3 w-full">
-                  <Code className="h-5 w-5" />
-                  <span className="capitalize font-medium">Category</span>
+                  className="gap-x-3 py-3 w-full h-auto">
+                  <Code className="w-5 h-5" />
+                  <span className="font-medium capitalize">Category</span>
                   <ChevronDown className="ms-2.5 h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -74,9 +74,9 @@ const Hero = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
-                  className="gap-x-3 h-auto py-3 w-full">
-                  <Code className="h-5 w-5" />
-                  <span className="capitalize font-medium">Category</span>
+                  className="gap-x-3 py-3 w-full h-auto">
+                  <Code className="w-5 h-5" />
+                  <span className="font-medium capitalize">Category</span>
                   <ChevronDown className="ms-2.5 h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -97,35 +97,35 @@ const Hero = () => {
         animate={{
           y: 0,
         }}>
-        <div className="relative col-span-6 row-start-2 row-span-6">
+        <div className="relative col-span-6 row-span-6 row-start-2">
           <Image
             src="https://source.unsplash.com/random/?code"
             alt="hero image"
-            className="rounded-xl object-center object-cover"
+            className="object-cover object-center rounded-xl"
             fill
           />
         </div>
-        <div className="relative col-start-7 col-span-5 row-span-6 ">
+        <div className="relative col-span-5 col-start-7 row-span-6">
           <Image
             src="https://source.unsplash.com/random/?construction"
             alt="hero image"
-            className="rounded-xl object-center object-cover"
+            className="object-cover object-center rounded-xl"
             fill
           />
         </div>
-        <div className="relative col-start-2 col-span-5 row-start-8 row-span-full">
+        <div className="relative col-span-5 col-start-2 row-span-full row-start-8">
           <Image
             src="https://source.unsplash.com/random/?blueprint"
             alt="hero image"
-            className="rounded-xl object-center object-cover"
+            className="object-cover object-center rounded-xl"
             fill
           />
         </div>
-        <div className="relative col-start-7 col-span-full row-span-5">
+        <div className="relative col-span-full col-start-7 row-span-5">
           <Image
             src="https://source.unsplash.com/random/?electrician"
             alt="hero image"
-            className="rounded-xl object-center object-cover"
+            className="object-cover object-center rounded-xl"
             fill
           />
         </div>
