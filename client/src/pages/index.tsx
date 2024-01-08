@@ -1,33 +1,34 @@
-import FeaturedCourses from '@/components/FeaturedCourses/FeaturedCourses';
-import Members from '@/components/Members/Members';
-import CategoryCard from '@/components/category-card';
-import Hero from '@/components/hero';
-import { Button } from '@/components/ui/button';
-import { VscSymbolClass } from 'react-icons/vsc';
+import CountingMembers from "@/components/CountingMembrs/CountingMembers";
+import FeaturedCourses from "@/components/FeaturedCourses/FeaturedCourses";
+import Members from "@/components/Members/Members";
+import CategoryCard from "@/components/category-card";
+import Hero from "@/components/hero";
+import { Button } from "@/components/ui/button";
+import { VscSymbolClass } from "react-icons/vsc";
 
 const categories = [
   {
-    name: 'Web Development and Design',
+    name: "Web Development and Design",
     courseCount: 9,
   },
   {
-    name: 'Data Science and Machine Learning',
+    name: "Data Science and Machine Learning",
     courseCount: 5,
   },
   {
-    name: 'Mobile App Development',
+    name: "Mobile App Development",
     courseCount: 3,
   },
   {
-    name: 'Business and Entrepreneurship',
+    name: "Business and Entrepreneurship",
     courseCount: 4,
   },
   {
-    name: 'Engineering (Civil and Electrical)',
+    name: "Engineering (Civil and Electrical)",
     courseCount: 6,
   },
   {
-    name: 'Creative Arts and Hobbies',
+    name: "Creative Arts and Hobbies",
     courseCount: 6,
   },
 ];
@@ -44,6 +45,7 @@ const HomePage = () => {
           <CategoryCard key={category.name} {...category} />
         ))}
       </div>
+      <CountingMembers></CountingMembers>
       {/* <Members></Members> */}
       {/* <FeaturedCourses></FeaturedCourses> */}
     </main>
