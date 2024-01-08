@@ -1,4 +1,5 @@
-import { ChevronRight, Paintbrush2 } from 'lucide-react';
+import { Paintbrush2 } from 'lucide-react';
+import Link from 'next/link';
 
 type CategoryCardProps = {
   name: string;
@@ -7,15 +8,15 @@ type CategoryCardProps = {
 
 const CategoryCard = ({ name, courseCount }: CategoryCardProps) => {
   return (
-    <div className="bg-white rounded-xl border border-neutral-50/50 p-2 shadow-sm flex items-center gap-x-4">
-      <div className="h-full aspect-square bg-primary-100 rounded-xl flex items-center justify-center">
-        <Paintbrush2 className="h-8 w-8" />
+    <Link
+      href="/"
+      className="bg-background rounded-xl p-5 border space-y-4 shadow-sm hover:bg-primary hover:text-white group transition-colors duration-300">
+      <div className="bg-primary/25 p-2.5 rounded-xl w-max group-hover:border-white transition-colors duration-300 border-2 border-transparent">
+        <Paintbrush2 className="text-primary group-hover:text-white transition-colors duration-300" />
       </div>
-      <div>
-        <h3 className="font-medium">{name}</h3>
-        <span className="text-neutral-600">{courseCount} courses</span>
-      </div>
-    </div>
+      <h4 className="font-medium pb-1">{name}</h4>
+      <span>{courseCount} courses</span>
+    </Link>
   );
 };
 
