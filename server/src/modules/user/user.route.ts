@@ -5,6 +5,6 @@ const router = express.Router();
 router.post("/create-user", userController.createUser);
 router.get("/", userController.getAllUsers);
 router.get("/userId", userController.getSingleUser);
-router.delete("/create-user", userController.deleteUser);
+router.delete("/courseId", userController.deleteUser);
 
 export const userRoutes = router;
