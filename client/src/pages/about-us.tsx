@@ -1,7 +1,7 @@
-import AboutBanner from "@/components/AboutBanner";
-import AboutManagement from "@/components/AboutManagement";
-import AboutOutlet from "@/components/aboutOutlet";
-import React from "react";
+import AboutBanner from '@/components/AboutBanner';
+import AboutManagement from '@/components/AboutManagement';
+import AboutOutlet from '@/components/AboutOutlet';
+import React from 'react';
 
 const AboutUs = () => {
   return (

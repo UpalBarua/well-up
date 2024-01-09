@@ -64,6 +64,7 @@ const Navbar = () => {
                   className={buttonVariants({
                     size: 'sm',
                     variant: 'ghost',
+                    className: 'text-base',
                   })}>
                   <span>{Icon}</span>
                   <span>{title}</span>
