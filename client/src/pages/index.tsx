@@ -2,6 +2,7 @@ import CategoryCard from '@/components/category-card';
 import CourseCard from '@/components/course-card';
 import Hero from '@/components/hero';
 import MilestoneCard from '@/components/milestone-card';
+import TestimonialCard from '@/components/testimonial-card';
 import { FileBox, Trophy, UserRound, UsersRound } from 'lucide-react';
 
 const categories = [
@@ -149,6 +150,109 @@ const mileStones = [
   },
 ] as const;
 
+const testimonials = [
+  {
+    id: 1,
+    name: 'asim roy',
+    batch: 'Python Developer',
+    back: '#FFA9E7',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbOTGGFzdWOAb6R1S5vujgZ4zHoQs16CD4yN3vq6U5g&s',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 2,
+    name: 'Jisan ahmed',
+    batch: 'Graphics Designer',
+    back: '#BB999C',
+    image:
+      'https://img.freepik.com/premium-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 3,
+    name: 'samir mahmud',
+    batch: 'web developer',
+    back: '#E88D67',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ14d9qYL7-1n4oCFQpMPRumEFfPuaGdOPFp3xp_BUb0n_YfXqm2-0tzolDWD4eQW2KUgU&usqp=CAU',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 4,
+    name: 'shawon khan',
+    batch: 'web developer',
+    back: '#9999C3',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxwv3-SNd4gRD40Hcbo5gw9IPmPvMo5C6w5_BLq_zdTOdBIL25bx0cP9zYAQ&s',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 5,
+    name: 'upal Barua',
+    batch: 'networking',
+    back: '#C6D2ED',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStl6lM1ApDmjv2b17QD77iKBxZDmzVjebXEQ&usqp=CAU',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 6,
+    name: 'Jisan talukder',
+    batch: 'web developer',
+    back: '#AFD2E9',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSOXZyXR4-UPEVKjTONTA6OrZJetX-8Od-H9hPp-oSRokFtK8fCGwgn5QlSA&s',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 7,
+    name: 'jesmin akter',
+    batch: 'web developer',
+    back: '#CFFFB0',
+    image:
+      'https://www.shutterstock.com/image-photo/young-asian-woman-professional-entrepreneur-600nw-2127014192.jpg',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 8,
+    name: 'mahesh kumar',
+    batch: 'web developer',
+    back: '#C9B1BD',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREI7PP7E1phTXhJ5aWcHJzAU8oV_aTC0B1nMgQ2jd_TrPoKgjJONFnyDTrGw&s',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 9,
+    name: 'ummhe rumki ',
+    batch: 'graphic Designer ',
+    back: '#D5DFE5',
+    image:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXQlMjBmZW1hbGV8ZW58MHx8MHx8fDA%3D',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+  {
+    id: 10,
+    name: 'neha Sharma',
+    batch: 'web developer',
+    back: '#97D2FB',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnb1jQTMdIb_CwV5-nyBke4VZ3ESYjQil-Eg&usqp=CAU',
+    review:
+      'This is a great course for of all .Instructor is very great.His explanation is to good. ',
+  },
+] as const;
+
 const HomePage = () => {
   return (
     <main className="container space-y-28">
@@ -172,6 +276,16 @@ const HomePage = () => {
       </section>
       <section className="mx-auto max-w-6xl">
         <h2 className="pb-10 text-2xl font-medium text-center dark:text-white">
+          Famous Courses
+        </h2>
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+          {allFeaturesCourses?.map((course) => (
+            <CourseCard key={course.id} {...course} />
+          ))}
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl">
+        <h2 className="pb-10 text-2xl font-medium text-center dark:text-white">
           Featured Courses
         </h2>
         <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
@@ -180,10 +294,16 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-
-      {/* <CountingMembers></CountingMembers> */}
-      {/* <Members></Members> */}
-      {/* <FeaturedCourses></FeaturedCourses> */}
+      <section className="pb-10 mx-auto max-w-5xl">
+        <h2 className="pb-10 text-2xl font-medium text-center dark:text-white">
+          What Our Students Say
+        </h2>
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+          {testimonials.slice(0, 3).map((testimonial) => (
+            <TestimonialCard key={testimonial.id} {...testimonial} />
+          ))}
+        </div>
+      </section>
     </main>
   );
 };
