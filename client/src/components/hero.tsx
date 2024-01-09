@@ -13,7 +13,7 @@ import { Input } from './ui/input';
 
 const Hero = () => {
   return (
-    <section className="grid grid-cols-2 gap-x-12 items-center pt-5 pb-10 mx-auto max-w-6xl lg:pb-28 lg:pt-8">
+    <section className="grid grid-cols-2 gap-x-12 items-center pt-5 mx-auto max-w-6xl lg:pt-8">
       <div className="space-y-2.5 lg:space-y-5">
         <h1 className="text-3xl font-extrabold tracking-tight lg:text-5xl lg:leading-[1.125] dark:text-white">
           Empowering Futures, Elevating Skills, Welcome to{' '}

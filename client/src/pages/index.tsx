@@ -1,11 +1,8 @@
-import CountingMembers from '@/components/CountingMembrs/CountingMembers';
-import FeaturedCourses from '@/components/FeaturedCourses/FeaturedCourses';
-import Members from '@/components/Members/Members';
 import CategoryCard from '@/components/category-card';
 import CourseCard from '@/components/course-card';
 import Hero from '@/components/hero';
-import { Button } from '@/components/ui/button';
-import { VscSymbolClass } from 'react-icons/vsc';
+import MilestoneCard from '@/components/milestone-card';
+import { FileBox, Trophy, UserRound, UsersRound } from 'lucide-react';
 
 const categories = [
   {
@@ -40,7 +37,7 @@ const categories = [
     name: 'Engineering (Civil and Electrical)',
     courseCount: 6,
   },
-];
+] as const;
 
 const allFeaturesCourses = [
   {
@@ -127,32 +124,63 @@ const allFeaturesCourses = [
     instructor_pic:
       'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbGV8ZW58MHx8MHx8fDA%3D',
   },
-];
+] as const;
+
+const mileStones = [
+  {
+    Icon: <UsersRound className="w-12 h-12" />,
+    number: 600,
+    text: 'Enrolled Students',
+  },
+  {
+    Icon: <Trophy className="w-12 h-12" />,
+    number: 450,
+    text: 'Graduated Students',
+  },
+  {
+    Icon: <FileBox className="w-12 h-12" />,
+    number: 20,
+    text: 'Professional Courses',
+  },
+  {
+    Icon: <UserRound className="w-12 h-12" />,
+    number: 50,
+    text: 'Experienced Mentors',
+  },
+] as const;
 
 const HomePage = () => {
   return (
-    <main className="container space-y-20">
+    <main className="container space-y-28">
       <Hero />
+      <section className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-4 gap-x-3">
+          {mileStones.map((milestone) => (
+            <MilestoneCard key={milestone.text} {...milestone} />
+          ))}
+        </div>
+      </section>
       <section>
-        <h2 className="text-center dark:text-white text-2xl font-medium pb-10">
+        <h2 className="pb-10 text-2xl font-medium text-center dark:text-white">
           Course Catagories
         </h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 gap-4 mx-auto max-w-5xl sm:grid-cols-2 md:grid-cols-4">
           {categories.map((category) => (
             <CategoryCard key={category.name} {...category} />
           ))}
         </div>
       </section>
-      <section>
-        <h2 className="text-center dark:text-white text-2xl font-medium pb-10">
+      <section className="mx-auto max-w-6xl">
+        <h2 className="pb-10 text-2xl font-medium text-center dark:text-white">
           Featured Courses
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
           {allFeaturesCourses?.map((course) => (
             <CourseCard key={course.id} {...course} />
           ))}
         </div>
       </section>
+
       {/* <CountingMembers></CountingMembers> */}
       {/* <Members></Members> */}
       {/* <FeaturedCourses></FeaturedCourses> */}
