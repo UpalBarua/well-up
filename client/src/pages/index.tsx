@@ -4,6 +4,7 @@ import Hero from '@/components/hero';
 import MilestoneCard from '@/components/milestone-card';
 import TestimonialCard from '@/components/testimonial-card';
 import { FileBox, Trophy, UserRound, UsersRound } from 'lucide-react';
+import Image from 'next/image';
 
 const categories = [
   {
@@ -129,22 +130,22 @@ const allFeaturesCourses = [
 
 const mileStones = [
   {
-    Icon: <UsersRound className="w-12 h-12" />,
+    Icon: <UsersRound className="w-10 h-10 text-primary" />,
     number: 600,
     text: 'Enrolled Students',
   },
   {
-    Icon: <Trophy className="w-12 h-12" />,
+    Icon: <Trophy className="w-10 h-10 text-primary" />,
     number: 450,
     text: 'Graduated Students',
   },
   {
-    Icon: <FileBox className="w-12 h-12" />,
+    Icon: <FileBox className="w-10 h-10 text-primary" />,
     number: 20,
     text: 'Professional Courses',
   },
   {
-    Icon: <UserRound className="w-12 h-12" />,
+    Icon: <UserRound className="w-10 h-10 text-primary" />,
     number: 50,
     text: 'Experienced Mentors',
   },
@@ -302,6 +303,84 @@ const HomePage = () => {
           {testimonials.slice(0, 3).map((testimonial) => (
             <TestimonialCard key={testimonial.id} {...testimonial} />
           ))}
+        </div>
+      </section>
+      <section className="pb-10 mx-auto max-w-5xl grid grid-cols-2 items-center gap-x-8">
+        <div className="order-2">
+          <h2 className="text-2xl font-medium dark:text-white pb-5">
+            Services we provide, Lorem ipsum.
+          </h2>
+          <div className="grid grid-cols-2 gap-2.5">
+            <div className="border rounded-xl bg-background shadow-sm space-y-1 leading-relaxed p-5">
+              <h3 className="font-medium">Service One</h3>
+              <p className="text-foreground/75">
+                Lorem ipsum dolor, Accusantium officia corporis, deleniti dolor
+                architecto repellat!
+              </p>
+            </div>
+            <div className="border rounded-xl bg-background shadow-sm space-y-1 leading-relaxed p-5">
+              <h3 className="font-medium">Service One</h3>
+              <p className="text-foreground/75">
+                Lorem ipsum dolor, Accusantium officia corporis, deleniti dolor
+                architecto repellat!
+              </p>
+            </div>
+            <div className="border rounded-xl bg-background shadow-sm space-y-1 leading-relaxed p-5">
+              <h3 className="font-medium">Service One</h3>
+              <p className="text-foreground/75">
+                Lorem ipsum dolor, Accusantium officia corporis, deleniti dolor
+                architecto repellat!
+              </p>
+            </div>
+            <div className="border rounded-xl bg-background shadow-sm space-y-1 leading-relaxed p-5">
+              <h3 className="font-medium">Service One</h3>
+              <p className="text-foreground/75">
+                Lorem ipsum dolor, Accusantium officia corporis, deleniti dolor
+                architecto repellat!
+              </p>
+            </div>
+            <div className="col-span-full border rounded-xl bg-background shadow-sm space-y-1 leading-relaxed p-5">
+              <h3 className="font-medium">Service One</h3>
+              <p className="text-foreground/75">
+                Lorem ipsum dolor, sit amet consectetu corporis, deleniti dolor
+                architecto repellat!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-12 grid-rows-12 gap-2.5 h-[30rem]">
+          <div className="relative col-span-6 row-span-6 row-start-2">
+            <Image
+              src="https://source.unsplash.com/random/?code"
+              alt="hero image"
+              className="object-cover object-center rounded-xl"
+              fill
+            />
+          </div>
+          <div className="relative col-span-5 col-start-7 row-span-6">
+            <Image
+              src="https://source.unsplash.com/random/?construction"
+              alt="hero image"
+              className="object-cover object-center rounded-xl"
+              fill
+            />
+          </div>
+          <div className="relative col-span-5 col-start-2 row-span-full row-start-8">
+            <Image
+              src="https://source.unsplash.com/random/?blueprint"
+              alt="hero image"
+              className="object-cover object-center rounded-xl"
+              fill
+            />
+          </div>
+          <div className="relative col-span-full col-start-7 row-span-5">
+            <Image
+              src="https://source.unsplash.com/random/?electrician"
+              alt="hero image"
+              className="object-cover object-center rounded-xl"
+              fill
+            />
+          </div>
         </div>
       </section>
     </main>

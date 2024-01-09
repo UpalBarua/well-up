@@ -9,10 +9,10 @@ type MilestoneCardProps = {
 
 function MilestoneCard({ Icon, number, text }: MilestoneCardProps) {
   return (
-    <div className="flex flex-col gap-y-4 items-center p-6 rounded-xl border bg-background">
-      {Icon}
+    <div className="flex flex-col gap-y-3 items-center p-6 rounded-xl border bg-background">
+      <div className="bg-primary/15 p-4 rounded-full">{Icon}</div>
       <CountUp
-        className="text-5xl font-medium tracking-tight"
+        className="text-5xl font-bold tracking-tight"
         start={0}
         end={number}
         duration={6}
